@@ -1,0 +1,123 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Klang Valley Rail Ridership Flow Map",
+  "width": 600,
+  "height": 600,
+
+  "projection": {
+    "type": "mercator"
+  },
+
+  "layer": [
+    {
+      "data": {
+        "url": "geoBoundaries-MYS-ADM2.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "rapidrail"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#fafafa",
+        "stroke": "#555",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "properties.shapeName",
+            "type": "nominal",
+            "title": "District"
+          }
+        ]
+      }
+    },
+
+    {
+      "data": {
+        "url": "cleaned_flow_data.csv"
+      },
+      "transform": [
+        {
+          "filter": "datum.ridership > 700"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "opacity": 0.15,
+        "strokeCap": "round"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "start_lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "start_lat",
+          "type": "quantitative"
+        },
+        "longitude2": {
+          "field": "end_lon",
+          "type": "quantitative"
+        },
+        "latitude2": {
+          "field": "end_lat",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "ridership",
+          "type": "quantitative",
+          "scale": {
+            "range": [2, 10]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "origin",
+            "type": "nominal",
+            "title": "From"
+          },
+          {
+            "field": "destination",
+            "type": "nominal",
+            "title": "To"
+          },
+          {
+            "field": "ridership",
+            "type": "quantitative",
+            "title": "Daily Flow"
+          }
+        ]
+      }
+    },
+
+    {
+      "data": {
+        "url": "cleaned_flow_data.csv"
+      },
+      "mark": {
+        "type": "circle",
+        "color": "black",
+        "size": 10
+      },
+      "encoding": {
+        "longitude": {
+          "field": "start_lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "start_lat",
+          "type": "quantitative"
+        },
+        "tooltip": [
+          {
+            "field": "origin",
+            "type": "nominal",
+            "title": "Station"
+          }
+        ]
+      }
+    }
+  ]
+}
