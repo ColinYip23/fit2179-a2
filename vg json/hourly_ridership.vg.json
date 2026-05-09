@@ -5,7 +5,7 @@
   "height": 400,
 
   "data": {
-    "url": "hourly_ridership.csv"
+    "url": "../data/hourly_ridership.csv"
   },
 
   "mark": {

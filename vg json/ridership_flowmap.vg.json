@@ -11,7 +11,7 @@
   "layer": [
     {
       "data": {
-        "url": "geoBoundaries-MYS-ADM2.topojson",
+        "url": "../geoBoundaries-MYS-ADM2.topojson",
         "format": {
           "type": "topojson",
           "feature": "rapidrail"
@@ -36,7 +36,7 @@
 
     {
       "data": {
-        "url": "cleaned_flow_data.csv"
+        "url": "../data/cleaned_flow_data.csv"
       },
       "transform": [
         {
@@ -94,7 +94,7 @@
 
     {
       "data": {
-        "url": "cleaned_flow_data.csv"
+        "url": "../data/cleaned_flow_data.csv"
       },
       "mark": {
         "type": "circle",
