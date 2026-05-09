@@ -1,0 +1,69 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "title": "Singapore vs Malaysia Public Transport Ridership (2019–2024)",
+
+  "data": {
+    "url": "cleaned_mrt_lrt_2019_2024.csv"
+  },
+
+  "facet": {
+    "column": {
+      "field": "source",
+      "type": "nominal",
+      "title": null,
+      "header": {
+        "labelExpr": "datum.label == 'dataset1' ? 'Singapore' : 'Malaysia'"
+      }
+    }
+  },
+
+  "spec": {
+    "width": 300,
+    "height": 400,
+
+    "mark": "bar",
+
+    "encoding": {
+      "x": {
+        "field": "year",
+        "type": "ordinal",
+        "title": "Year"
+      },
+
+      "xOffset": {
+        "field": "mode"
+      },
+
+      "y": {
+        "field": "ridership",
+        "type": "quantitative",
+        "title": "Ridership",
+        "axis": {
+          "format": "~s"
+        }
+      },
+
+      "color": {
+        "field": "mode",
+        "type": "nominal"
+      },
+
+      "tooltip": [
+        { "field": "source" },
+        { "field": "mode" },
+        { "field": "year" },
+        {
+          "field": "ridership",
+          "format": ","
+        }
+      ]
+    }
+  },
+
+  "resolve": {
+    "scale": {
+      "y": "independent"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Ridership Trend Throughout the Day",
+  "width": 700,
+  "height": 400,
+
+  "data": {
+    "url": "hourly_ridership.csv"
+  },
+
+  "mark": {
+    "type": "line",
+    "point": true,
+    "strokeWidth": 3
+  },
+
+  "encoding": {
+    "x": {
+      "field": "time",
+      "type": "ordinal",
+      "title": "Time",
+      "axis": {
+        "labelAngle": -45
+      }
+    },
+    "y": {
+      "field": "ridership",
+      "type": "quantitative",
+      "title": "Total Ridership"
+    },
+    "tooltip": [
+      { "field": "time", "type": "ordinal", "title": "Time" },
+      {
+        "field": "ridership",
+        "type": "quantitative",
+        "title": "Total Ridership",
+        "format": ","
+      }
+    ]
+  }
+}
