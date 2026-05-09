@@ -1,7 +1,10 @@
 import pandas as pd
+from pathlib import Path
+
+DATA_DIR = Path(__file__).resolve().parents[1] / "data"
 
 # Load dataset
-df = pd.read_csv("fuelprice.csv")
+df = pd.read_csv(DATA_DIR / "fuelprice.csv")
 
 # Keep only actual fuel price levels
 df = df[df["series_type"] == "level"].copy()
@@ -28,6 +31,6 @@ monthly_ron95 = (
 monthly_ron95["ron95"] = monthly_ron95["ron95"].round(2)
 
 # Save cleaned dataset
-monthly_ron95.to_csv("monthly_ron95_2021_2025.csv", index=False)
+monthly_ron95.to_csv(DATA_DIR / "monthly_ron95_2021_2025.csv", index=False)
 
 print(monthly_ron95)

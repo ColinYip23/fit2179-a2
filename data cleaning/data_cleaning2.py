@@ -1,8 +1,11 @@
 import pandas as pd
+from pathlib import Path
+
+DATA_DIR = Path(__file__).resolve().parents[1] / "data"
 
 # 1. Load both datasets
-old_df = pd.read_csv("PublicTransportUtilisationAveragePublicTransportRidership.csv")   # year, mode, ridership
-daily_df = pd.read_csv("ridership_headline.csv") # date, rail columns
+old_df = pd.read_csv(DATA_DIR / "PublicTransportUtilisationAveragePublicTransportRidership.csv")   # year, mode, ridership
+daily_df = pd.read_csv(DATA_DIR / "ridership_headline.csv") # date, rail columns
 
 # 2. Clean first dataset: keep 2019-2024 MRT/LRT only
 old_clean = old_df[
@@ -47,6 +50,6 @@ combined = pd.concat([old_clean, daily_clean], ignore_index=True)
 combined = combined.sort_values(["year", "source", "mode"])
 
 # 5. Save cleaned file
-combined.to_csv("cleaned_mrt_lrt_2019_2024.csv", index=False)
+combined.to_csv(DATA_DIR / "cleaned_mrt_lrt_2019_2024.csv", index=False)
 
 print(combined)

@@ -1,4 +1,7 @@
 import pandas as pd
+from pathlib import Path
+
+DATA_DIR = Path(__file__).resolve().parents[1] / "data"
 
 def clean_transit_data(ridership_path, stops_path):
     # 1. Load Datasets
@@ -50,7 +53,6 @@ def clean_transit_data(ridership_path, stops_path):
     return df_clean
 
 if __name__ == "__main__":
-    # Update these filenames to your actual local paths
-    cleaned_data = clean_transit_data('rapidrail_2026_daily.csv', 'stops.csv')
-    cleaned_data.to_csv('cleaned_flow_data.csv', index=False)
+    cleaned_data = clean_transit_data(DATA_DIR / "rapidrail_2026_daily.csv", DATA_DIR / "stops.csv")
+    cleaned_data.to_csv(DATA_DIR / "cleaned_flow_data.csv", index=False)
     print("Success: File saved as 'cleaned_flow_data.csv'")

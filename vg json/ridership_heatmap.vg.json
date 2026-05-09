@@ -1,0 +1,37 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Monthly Ridership Heatmap by Ride Type 2025",
+  "width": 700,
+  "height": 350,
+  "data": {"url": "../data/monthly_ridership_long.csv"},
+  "mark": "rect",
+  "encoding": {
+    "x": {
+      "field": "Month",
+      "type": "ordinal",
+      "title": "Month",
+      "sort": [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+      ],
+      "axis": {"labelAngle": -45}
+    },
+    "y": {
+      "field": "ride_type",
+      "type": "nominal",
+      "title": "Ride Type"
+    },
+    "color": {
+      "field": "ridership",
+      "type": "quantitative",
+      "title": "Ridership",
+      "scale": {"scheme": "blues"},
+      "legend": {"format": "~s"}
+    },
+    "tooltip": [
+      {"field": "Month", "title": "Month"},
+      {"field": "ride_type", "title": "Ride Type"},
+      {"field": "ridership", "title": "Ridership", "format": ","}
+    ]
+  }
+}

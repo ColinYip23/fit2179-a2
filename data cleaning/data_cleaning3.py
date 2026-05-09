@@ -1,6 +1,9 @@
 import pandas as pd
+from pathlib import Path
 
-df = pd.read_csv("komuter_2026.csv")
+DATA_DIR = Path(__file__).resolve().parents[1] / "data"
+
+df = pd.read_csv(DATA_DIR / "komuter_2026.csv")
 
 # Combine ridership for the same time regardless of origin/destination
 hourly = (
@@ -9,6 +12,6 @@ hourly = (
       .sort_values("time")
 )
 
-hourly.to_csv("hourly_ridership.csv", index=False)
+hourly.to_csv(DATA_DIR / "hourly_ridership.csv", index=False)
 
 print(hourly)
