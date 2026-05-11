@@ -23,7 +23,7 @@
           "x2": {"value": 900},
           "y": {"field": "source", "scale": "sourceScale"},
           "y2": {"field": "target", "scale": "targetScale"},
-          "stroke": {"value": "#4e79a7"},
+          "stroke": {"value": "black"},
           "strokeOpacity": {"value": 0.35},
           "strokeWidth": {"scale": "widthScale", "field": "value"}
         },
@@ -53,7 +53,7 @@
       "name": "widthScale",
       "type": "linear",
       "domain": {"data": "links", "field": "value"},
-      "range": [1, 12]
+      "range": [1, 15]
     }
   ],
 
