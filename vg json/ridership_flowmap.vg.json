@@ -36,16 +36,21 @@
 
     {
       "data": {
-        "url": "../data/cleaned_flow_data.csv"
-      },
-      "transform": [
-        {
-          "filter": "datum.ridership > 800"
+        "url": "../data/cleaned_flow_data.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "ridership": "number",
+            "start_lon": "number",
+            "start_lat": "number",
+            "end_lon": "number",
+            "end_lat": "number"
+          }
         }
-      ],
+      },
       "mark": {
         "type": "rule",
-        "opacity": 0.18,
+        "opacity": 0.28,
         "strokeCap": "round"
       },
       "encoding": {
@@ -69,7 +74,8 @@
           "field": "ridership",
           "type": "quantitative",
           "scale": {
-            "range": [1, 5]
+            "domain": [250, 1700],
+            "range": [0.5, 5]
           }
         },
         "tooltip": [
@@ -94,27 +100,41 @@
 
     {
       "data": {
-        "url": "../data/cleaned_flow_data.csv"
+        "url": "../data/stops.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "stop_lon": "number",
+            "stop_lat": "number"
+          }
+        }
       },
       "mark": {
         "type": "circle",
         "color": "black",
-        "size": 10
+        "stroke": "white",
+        "strokeWidth": 0.8,
+        "size": 18
       },
       "encoding": {
         "longitude": {
-          "field": "start_lon",
+          "field": "stop_lon",
           "type": "quantitative"
         },
         "latitude": {
-          "field": "start_lat",
+          "field": "stop_lat",
           "type": "quantitative"
         },
         "tooltip": [
           {
-            "field": "origin",
+            "field": "stop_name",
             "type": "nominal",
             "title": "Station"
+          },
+          {
+            "field": "category",
+            "type": "nominal",
+            "title": "Type"
           }
         ]
       }

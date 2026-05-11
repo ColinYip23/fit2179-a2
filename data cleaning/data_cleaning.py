@@ -2,55 +2,67 @@ import pandas as pd
 from pathlib import Path
 
 DATA_DIR = Path(__file__).resolve().parents[1] / "data"
+MIN_AVERAGE_DAILY_FLOW = 250
+FLOW_COLUMNS = [
+    "origin",
+    "destination",
+    "ridership",
+    "start_lat",
+    "start_lon",
+    "end_lat",
+    "end_lon",
+]
 
 def clean_transit_data(ridership_path, stops_path):
-    # 1. Load Datasets
-    # Ridership: origin, destination, date, ridership
-    # Stops: stop_id, stop_name, stop_lat, stop_lon
-    df_ridership = pd.read_csv(ridership_path)
-    df_stops = pd.read_csv(stops_path)
+    ridership = pd.read_csv(
+        ridership_path,
+        usecols=["origin", "destination", "ridership"],
+    )
+    stops = pd.read_csv(
+        stops_path,
+        usecols=["stop_id", "stop_lat", "stop_lon"],
+    )
 
-    # 2. Filter out Aggregated Totals
-    # We remove "A0: All Stations" as it cannot be plotted on a flow map
-    mask = (~df_ridership['origin'].str.contains('All Stations', na=False)) & \
-           (~df_ridership['destination'].str.contains('All Stations', na=False))
-    df_clean = df_ridership[mask].copy()
+    ridership["ridership"] = pd.to_numeric(ridership["ridership"], errors="coerce")
 
-    # 3. Extract Station Codes
-    # Convert "AG01: Sentul Timur" -> "AG01"
-    df_clean['origin_id'] = df_clean['origin'].str.split(':').str[0].str.strip()
-    df_clean['dest_id'] = df_clean['destination'].str.split(':').str[0].str.strip()
+    valid_station_pair = (
+        ridership["ridership"].notna()
+        & ~ridership["origin"].str.contains("All Stations", na=False)
+        & ~ridership["destination"].str.contains("All Stations", na=False)
+        & (ridership["origin"] != ridership["destination"])
+    )
+    flows = ridership.loc[valid_station_pair].copy()
 
-    # 4. Standardize Stop IDs
-    # Ensure stops_df IDs match the format in ridership (e.g., ensuring no leading/trailing spaces)
-    df_stops['stop_id'] = df_stops['stop_id'].astype(str).str.strip()
+    # Collapse daily records into one average daily flow per OD pair.
+    flows = (
+        flows.groupby(["origin", "destination"], as_index=False)["ridership"]
+        .mean()
+        .round()
+    )
 
-    # 5. Merge Coordinates for Origin
-    df_clean = pd.merge(
-        df_clean, 
-        df_stops[['stop_id', 'stop_lat', 'stop_lon']], 
-        left_on='origin_id', 
-        right_on='stop_id', 
-        how='left'
-    ).rename(columns={'stop_lat': 'start_lat', 'stop_lon': 'start_lon'}).drop('stop_id', axis=1)
+    flows["origin_id"] = flows["origin"].str.split(":").str[0].str.strip()
+    flows["dest_id"] = flows["destination"].str.split(":").str[0].str.strip()
 
-    # 6. Merge Coordinates for Destination
-    df_clean = pd.merge(
-        df_clean, 
-        df_stops[['stop_id', 'stop_lat', 'stop_lon']], 
-        left_on='dest_id', 
-        right_on='stop_id', 
-        how='left'
-    ).rename(columns={'stop_lat': 'end_lat', 'stop_lon': 'end_lon'}).drop('stop_id', axis=1)
+    stops["stop_id"] = stops["stop_id"].astype(str).str.strip()
+    stop_lookup = stops.set_index("stop_id")
 
-    # 7. Final Cleanup
-    # Drop rows where coordinates couldn't be found (unmatched IDs)
-    initial_count = len(df_clean)
-    df_clean = df_clean.dropna(subset=['start_lat', 'end_lat'])
-    
-    print(f"Cleaned {len(df_clean)} rows. Dropped {initial_count - len(df_clean)} unmatched stations.")
-    
-    return df_clean
+    flows = flows.join(stop_lookup, on="origin_id")
+    flows = flows.rename(columns={"stop_lat": "start_lat", "stop_lon": "start_lon"})
+
+    flows = flows.join(stop_lookup, on="dest_id")
+    flows = flows.rename(columns={"stop_lat": "end_lat", "stop_lon": "end_lon"})
+
+    initial_count = len(flows)
+    flows = flows.dropna(subset=["start_lat", "start_lon", "end_lat", "end_lon"])
+    flows["ridership"] = flows["ridership"].astype(int)
+    flows = flows[flows["ridership"] > MIN_AVERAGE_DAILY_FLOW]
+
+    print(
+        f"Cleaned {len(flows)} OD flows. "
+        f"Dropped {initial_count - len(flows)} unmatched or low-flow station pairs."
+    )
+
+    return flows[FLOW_COLUMNS].sort_values("ridership", ascending=False)
 
 if __name__ == "__main__":
     cleaned_data = clean_transit_data(DATA_DIR / "rapidrail_2026_daily.csv", DATA_DIR / "stops.csv")
