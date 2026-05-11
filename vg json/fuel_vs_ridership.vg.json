@@ -1,0 +1,76 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "RON95 Fuel Price vs Public Transport Ridership (2021–2025)",
+  "width": 800,
+  "height": 400,
+
+  "data": {
+    "url": "../data/fuel_vs_ridership.csv"
+  },
+
+  "encoding": {
+    "x": {
+      "field": "date",
+      "type": "temporal",
+      "title": "Month"
+    }
+  },
+
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "point": true,
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "y": {
+          "field": "ridership",
+          "type": "quantitative",
+          "title": "Ridership",
+          "axis": {
+            "titleColor": "#1f77b4",
+            "format": "~s"
+          }
+        },
+        "color": {
+          "value": "#1f77b4"
+        },
+        "tooltip": [
+          {"field": "date", "type": "temporal", "title": "Month", "format": "%b %Y"},
+          {"field": "ridership", "type": "quantitative", "title": "Ridership", "format": ","}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "line",
+        "point": true,
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "y": {
+          "field": "ron95_price",
+          "type": "quantitative",
+          "title": "RON95 Price (RM/Litre)",
+          "axis": {
+            "titleColor": "#d62728"
+          }
+        },
+        "color": {
+          "value": "#d62728"
+        },
+        "tooltip": [
+          {"field": "date", "type": "temporal", "title": "Month", "format": "%b %Y"},
+          {"field": "ron95_price", "type": "quantitative", "title": "RON95 Price", "format": ".2f"}
+        ]
+      }
+    }
+  ],
+
+  "resolve": {
+    "scale": {
+      "y": "independent"
+    }
+  }
+}

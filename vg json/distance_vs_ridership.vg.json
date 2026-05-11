@@ -1,0 +1,38 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Ridership vs Travel Distance",
+  "width": 750,
+  "height": 450,
+
+  "data": {
+    "url": "../data/distance_decay.csv"
+  },
+
+  "mark": {
+    "type": "circle",
+    "opacity": 0.45,
+    "size": 80
+  },
+
+  "encoding": {
+    "x": {
+      "field": "distance_km",
+      "type": "quantitative",
+      "title": "Station-to-Station Distance (km)"
+    },
+    "y": {
+      "field": "ridership",
+      "type": "quantitative",
+      "title": "Ridership",
+      "axis": {
+        "format": "~s"
+      }
+    },
+    "tooltip": [
+      {"field": "origin", "type": "nominal", "title": "Origin"},
+      {"field": "destination", "type": "nominal", "title": "Destination"},
+      {"field": "distance_km", "type": "quantitative", "title": "Distance (km)", "format": ".2f"},
+      {"field": "ridership", "type": "quantitative", "title": "Ridership", "format": ","}
+    ]
+  }
+}

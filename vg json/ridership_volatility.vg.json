@@ -1,0 +1,41 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "7-Day Ridership Volatility",
+  "width": 800,
+  "height": 400,
+
+  "data": {
+    "url": "../data/ridership_volatility.csv"
+  },
+
+  "mark": {
+    "type": "line",
+    "point": false,
+    "strokeWidth": 3
+  },
+
+  "encoding": {
+    "x": {
+      "field": "date",
+      "type": "temporal",
+      "title": "Date"
+    },
+    "y": {
+      "field": "rolling_7day_std",
+      "type": "quantitative",
+      "title": "7-Day Rolling Standard Deviation",
+      "axis": {
+        "format": "~s"
+      }
+    },
+    "tooltip": [
+      {"field": "date", "type": "temporal", "title": "Date"},
+      {
+        "field": "rolling_7day_std",
+        "type": "quantitative",
+        "title": "Volatility",
+        "format": ",.0f"
+      }
+    ]
+  }
+}

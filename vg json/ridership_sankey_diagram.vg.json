@@ -1,0 +1,72 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "width": 900,
+  "height": 600,
+  "padding": 5,
+  "title": "Major Origin-Destination Flows Between Stations",
+
+  "data": [
+    {
+      "name": "links",
+      "url": "../data/rapidrail_sankey_top30.csv",
+      "format": {"type": "csv", "parse": {"value": "number"}}
+    }
+  ],
+
+  "marks": [
+    {
+      "type": "rule",
+      "from": {"data": "links"},
+      "encode": {
+        "enter": {
+          "x": {"value": 0},
+          "x2": {"value": 900},
+          "y": {"field": "source", "scale": "sourceScale"},
+          "y2": {"field": "target", "scale": "targetScale"},
+          "stroke": {"value": "#4e79a7"},
+          "strokeOpacity": {"value": 0.35},
+          "strokeWidth": {"scale": "widthScale", "field": "value"}
+        },
+        "update": {
+          "tooltip": {
+            "signal": "datum.source + ' → ' + datum.target + ': ' + format(datum.value, ',')"
+          }
+        }
+      }
+    }
+  ],
+
+  "scales": [
+    {
+      "name": "sourceScale",
+      "type": "point",
+      "domain": {"data": "links", "field": "source"},
+      "range": [40, 560]
+    },
+    {
+      "name": "targetScale",
+      "type": "point",
+      "domain": {"data": "links", "field": "target"},
+      "range": [40, 560]
+    },
+    {
+      "name": "widthScale",
+      "type": "linear",
+      "domain": {"data": "links", "field": "value"},
+      "range": [1, 12]
+    }
+  ],
+
+  "axes": [
+    {
+      "orient": "left",
+      "scale": "sourceScale",
+      "title": "Origin"
+    },
+    {
+      "orient": "right",
+      "scale": "targetScale",
+      "title": "Destination"
+    }
+  ]
+}

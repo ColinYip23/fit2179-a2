@@ -1,0 +1,44 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Top 15 RapidKL Rail Stations by Ridership",
+  "width": 700,
+  "height": 450,
+
+  "data": {
+    "url": "../data/top_stations_ridership.csv"
+  },
+
+  "mark": {
+    "type": "bar"
+  },
+
+  "encoding": {
+    "y": {
+      "field": "station",
+      "type": "nominal",
+      "sort": "-x",
+      "title": "Station"
+    },
+    "x": {
+      "field": "ridership",
+      "type": "quantitative",
+      "title": "Total Ridership",
+      "axis": {
+        "format": "~s"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "station",
+        "type": "nominal",
+        "title": "Station"
+      },
+      {
+        "field": "ridership",
+        "type": "quantitative",
+        "title": "Total Ridership",
+        "format": ","
+      }
+    ]
+  }
+}

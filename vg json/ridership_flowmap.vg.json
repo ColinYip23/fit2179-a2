@@ -36,16 +36,55 @@
 
     {
       "data": {
+        "url": "../geoBoundaries-MYS-ADM2.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "rapidrail"
+        }
+      },
+
+      "transform": [
+        {
+          "calculate": "datum.properties.shapeName",
+          "as": "district"
+        }
+      ],
+
+      "mark": {
+        "type": "text",
+        "fontSize": 10,
+        "color": "#666"
+      },
+
+      "encoding": {
+        "longitude": {
+          "field": "properties.center_lon",
+          "type": "quantitative"
+        },
+
+        "latitude": {
+          "field": "properties.center_lat",
+          "type": "quantitative"
+        },
+
+        "text": {
+          "field": "district"
+        }
+      }
+    },
+
+    {
+      "data": {
         "url": "../data/cleaned_flow_data.csv"
       },
       "transform": [
         {
-          "filter": "datum.ridership > 700"
+          "filter": "datum.ridership > 800"
         }
       ],
       "mark": {
         "type": "rule",
-        "opacity": 0.15,
+        "opacity": 0.18,
         "strokeCap": "round"
       },
       "encoding": {
@@ -69,7 +108,7 @@
           "field": "ridership",
           "type": "quantitative",
           "scale": {
-            "range": [2, 10]
+            "range": [1, 5]
           }
         },
         "tooltip": [

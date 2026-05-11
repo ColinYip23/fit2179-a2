@@ -1,0 +1,131 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "title": "Daily Ridership by Public Transport Mode",
+
+  "width": 800,
+  "height": 400,
+
+  "data": {
+    "url": "../data/daily_mode_ridership.csv"
+  },
+
+  "layer": [
+
+    {
+      "transform": [{ "filter": "datum.mode == 'LRT'" }],
+
+      "mark": {
+        "type": "area",
+        "opacity": 0.55
+      },
+
+      "encoding": {
+        "x": {
+          "field": "date",
+          "type": "temporal"
+        },
+
+        "y": {
+          "field": "ridership",
+          "type": "quantitative",
+          "stack": null
+        },
+
+        "color": {
+          "datum": "LRT"
+        },
+
+        "tooltip": [
+          { "field": "date", "type": "temporal", "title": "Date" },
+          { "field": "mode", "type": "nominal", "title": "Mode" },
+          {
+            "field": "ridership",
+            "type": "quantitative",
+            "title": "Ridership",
+            "format": ","
+          }
+        ]
+      }
+    },
+
+    {
+      "transform": [{ "filter": "datum.mode == 'MRT'" }],
+
+      "mark": {
+        "type": "area",
+        "opacity": 0.55
+      },
+
+      "encoding": {
+        "x": {
+          "field": "date",
+          "type": "temporal"
+        },
+
+        "y": {
+          "field": "ridership",
+          "type": "quantitative",
+          "stack": null
+        },
+
+        "color": {
+          "datum": "MRT"
+        },
+
+        "tooltip": [
+          { "field": "date", "type": "temporal", "title": "Date" },
+          { "field": "mode", "type": "nominal", "title": "Mode" },
+          {
+            "field": "ridership",
+            "type": "quantitative",
+            "title": "Ridership",
+            "format": ","
+          }
+        ]
+      }
+    },
+
+    {
+      "transform": [{ "filter": "datum.mode == 'BRT'" }],
+
+      "mark": {
+        "type": "area",
+        "opacity": 0.55
+      },
+
+      "encoding": {
+        "x": {
+          "field": "date",
+          "type": "temporal",
+          "title": "Date"
+        },
+
+        "y": {
+          "field": "ridership",
+          "type": "quantitative",
+          "title": "Ridership",
+          "stack": null,
+          "axis": {
+            "format": "~s"
+          }
+        },
+
+        "color": {
+          "datum": "BRT"
+        },
+
+        "tooltip": [
+          { "field": "date", "type": "temporal", "title": "Date" },
+          { "field": "mode", "type": "nominal", "title": "Mode" },
+          {
+            "field": "ridership",
+            "type": "quantitative",
+            "title": "Ridership",
+            "format": ","
+          }
+        ]
+      }
+    }
+  ]
+}
