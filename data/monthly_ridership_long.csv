@@ -1,0 +1,97 @@
+Month,ride_type,ridership
+January,Kelana Jaya (LRT),7199444
+February,Kelana Jaya (LRT),6969645
+March,Kelana Jaya (LRT),7174483
+April,Kelana Jaya (LRT),7285351
+May,Kelana Jaya (LRT),7531075
+June,Kelana Jaya (LRT),7055985
+July,Kelana Jaya (LRT),8236230
+August,Kelana Jaya (LRT),8095935
+September,Kelana Jaya (LRT),7143358
+October,Kelana Jaya (LRT),7739381
+November,Kelana Jaya (LRT),7417502
+December,Kelana Jaya (LRT),7784113
+January,Ampang (LRT),5583947
+February,Ampang (LRT),5412652
+March,Ampang (LRT),5755933
+April,Ampang (LRT),5661642
+May,Ampang (LRT),6216005
+June,Ampang (LRT),5710467
+July,Ampang (LRT),6350274
+August,Ampang (LRT),6343844
+September,Ampang (LRT),5664639
+October,Ampang (LRT),6205243
+November,Ampang (LRT),5909107
+December,Ampang (LRT),6205647
+January,KL Monorail,1812766
+February,KL Monorail,1630089
+March,KL Monorail,1632663
+April,KL Monorail,1659426
+May,KL Monorail,1773505
+June,KL Monorail,1689666
+July,KL Monorail,1858680
+August,KL Monorail,1892143
+September,KL Monorail,1657494
+October,KL Monorail,1846749
+November,KL Monorail,1731604
+December,KL Monorail,1916425
+January,Kajang (MRT),7474956
+February,Kajang (MRT),7039197
+March,Kajang (MRT),7142305
+April,Kajang (MRT),7389774
+May,Kajang (MRT),7823203
+June,Kajang (MRT),7527345
+July,Kajang (MRT),8322586
+August,Kajang (MRT),8301044
+September,Kajang (MRT),7530148
+October,Kajang (MRT),8015428
+November,Kajang (MRT),7803280
+December,Kajang (MRT),8368266
+January,Putrajaya (MRT),4324708
+February,Putrajaya (MRT),4147600
+March,Putrajaya (MRT),4305723
+April,Putrajaya (MRT),4485310
+May,Putrajaya (MRT),4716456
+June,Putrajaya (MRT),4479168
+July,Putrajaya (MRT),5110482
+August,Putrajaya (MRT),5052583
+September,Putrajaya (MRT),4543928
+October,Putrajaya (MRT),4753510
+November,Putrajaya (MRT),4759332
+December,Putrajaya (MRT),4991264
+January,KL (BUS),6300772
+February,KL (BUS),6116351
+March,KL (BUS),6473286
+April,KL (BUS),6704021
+May,KL (BUS),6847315
+June,KL (BUS),6509133
+July,KL (BUS),6793122
+August,KL (BUS),6709801
+September,KL (BUS),5954738
+October,KL (BUS),6640671
+November,KL (BUS),6455930
+December,KL (BUS),6485099
+January,Penang (BUS),1500325
+February,Penang (BUS),1302770
+March,Penang (BUS),1372950
+April,Penang (BUS),1383024
+May,Penang (BUS),1444377
+June,Penang (BUS),1422570
+July,Penang (BUS),1553555
+August,Penang (BUS),1554570
+September,Penang (BUS),1410465
+October,Penang (BUS),1505452
+November,Penang (BUS),1429791
+December,Penang (BUS),1522643
+January,Kuantan (BUS),70019
+February,Kuantan (BUS),69469
+March,Kuantan (BUS),76427
+April,Kuantan (BUS),76647
+May,Kuantan (BUS),74003
+June,Kuantan (BUS),69230
+July,Kuantan (BUS),73397
+August,Kuantan (BUS),72755
+September,Kuantan (BUS),65261
+October,Kuantan (BUS),67012
+November,Kuantan (BUS),53582
+December,Kuantan (BUS),24237

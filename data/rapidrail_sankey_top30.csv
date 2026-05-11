@@ -1,0 +1,31 @@
+source,target,value
+KJ10: KLCC,KJ09: Ampang Park,296953
+KG20: Tun Razak Exchange,KG18: Bukit Bintang,261258
+KJ09: Ampang Park,KJ10: KLCC,254844
+KG18: Bukit Bintang,KG22: Maluri,251641
+KG22: Maluri,KG18: Bukit Bintang,249617
+KG18: Bukit Bintang,KG20: Tun Razak Exchange,239037
+KJ09: Ampang Park,KJ03: Wangsa Maju,221123
+KJ15: KL Sentral,KJ10: KLCC,211528
+KJ15: KL Sentral,KJ16: Bank Rakyat Bangsar,197852
+KJ03: Wangsa Maju,KJ09: Ampang Park,196857
+KJ10: KLCC,KJ15: KL Sentral,195985
+KJ16: Bank Rakyat Bangsar,KJ15: KL Sentral,193389
+MR01: KL Sentral,MR06: Bukit Bintang,187185
+KJ17: Abdullah Hukum,KJ15: KL Sentral,181285
+KJ15: KL Sentral,KJ17: Abdullah Hukum,175324
+KG18: Bukit Bintang,KG21: Cochrane,173867
+MR08: Bukit Nanas,MR06: Bukit Bintang,168580
+MR06: Bukit Bintang,MR01: KL Sentral,165889
+KG20: Tun Razak Exchange,KG22: Maluri,161349
+KG21: Cochrane,KG18: Bukit Bintang,158844
+KG22: Maluri,KG20: Tun Razak Exchange,158061
+KG16: Pasar Seni,KG18: Bukit Bintang,157863
+MR06: Bukit Bintang,MR08: Bukit Nanas,157548
+KG20: Tun Razak Exchange,KG21: Cochrane,157002
+KG18: Bukit Bintang,KJ14: Pasar Seni,155595
+MR10: Chow Kit,MR06: Bukit Bintang,153348
+KJ14: Pasar Seni,KG18: Bukit Bintang,150690
+MR05: Imbi,MR06: Bukit Bintang,149621
+KJ10: KLCC,KJ03: Wangsa Maju,147735
+PYL20: Ampang Park,KG20: Tun Razak Exchange,146148
