@@ -1,6 +1,22 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Ridership vs Travel Distance",
+  "title": {
+    "text": "Ridership vs Travel Distance",
+    "subtitle": [
+      "Ridership tends to be higher for shorter distances.",
+      "This suggests commuters prefer short convenient trips,",
+      "especially in urban areas with closely connected stations.",
+      "As distance increases, ridership generally declines,",
+      "possibly due to longer travel times or other options."
+    ],
+    "subtitleFontSize": 12,
+    "subtitleColor": "#555",
+    "subtitleLineHeight": 16,
+    "font": "Georgia, Times New Roman, serif",
+    "subtitleFont": "Arial, Helvetica, sans-serif",
+    "align": "center",
+    "anchor": "middle"
+  },
   "width": 750,
   "height": 450,
 

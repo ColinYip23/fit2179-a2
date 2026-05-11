@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="styles.css">
 <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
 <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
@@ -20,26 +21,55 @@
 <title>Public Transport in Malaysia</title>
 </head>
 <body>
-<h1>Public Transport in Malaysia</h1>
-<div id="bar_chart">
-</div>
-<div id="sg_vs_my_ridership">
-</div>
-<div id="hourly_ridership">
-</div>
-<div id="ridership_heatmap">
-</div>
-<div id="ridership_sankey_diagram">
-</div>
-<div id="ridership_area_chart">
-</div>
-<div id="fuel_vs_ridership">
-</div>
-<div id="top_stations">
-</div>
-<div id="ridership_volatility">
-</div>
-<div id="distance_vs_ridership">
-</div>
+<header class="page-header">
+  <p class="eyebrow">Malaysia Public Transport Dashboard</p>
+  <h1>Public Transport in Malaysia</h1>
+  <p class="intro">
+    Ridership patterns, travel behaviour, and transport demand across
+    major Malaysian public transport services.
+  </p>
+</header>
+
+<main class="dashboard">
+  <section class="chart-card chart-card-large">
+    <div id="bar_chart" class="chart"></div>
+  </section>
+
+  <section class="chart-card">
+    <div id="sg_vs_my_ridership" class="chart"></div>
+  </section>
+
+  <section class="chart-card">
+    <div id="hourly_ridership" class="chart"></div>
+  </section>
+
+  <section class="chart-card chart-card-large">
+    <div id="ridership_heatmap" class="chart"></div>
+  </section>
+
+  <section class="chart-card chart-card-large">
+    <div id="ridership_sankey_diagram" class="chart"></div>
+  </section>
+
+  <section class="chart-card chart-card-large">
+    <div id="ridership_area_chart" class="chart"></div>
+  </section>
+
+  <section class="chart-card chart-card-large">
+    <div id="fuel_vs_ridership" class="chart"></div>
+  </section>
+
+  <section class="chart-card">
+    <div id="top_stations" class="chart"></div>
+  </section>
+
+  <section class="chart-card">
+    <div id="ridership_volatility" class="chart"></div>
+  </section>
+
+  <section class="chart-card chart-card-large">
+    <div id="distance_vs_ridership" class="chart"></div>
+  </section>
+</main>
 </body>
 </html>

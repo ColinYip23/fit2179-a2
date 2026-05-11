@@ -1,7 +1,22 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
 
-  "title": "Daily Ridership by Public Transport Mode",
+  "title": {
+    "text": "Daily Ridership by Public Transport Mode",
+    "subtitle": [
+      "The LRT, BRT, and MRT show similar daily patterns.",
+      "Ridership is much higher on weekdays than weekends.",
+      "Weekend ridership declines due to reduced commuting,",
+      "as fewer people travel for work or school."
+    ],
+    "subtitleFontSize": 12,
+    "subtitleColor": "#555",
+    "subtitleLineHeight": 16,
+    "font": "Georgia, Times New Roman, serif",
+    "subtitleFont": "Arial, Helvetica, sans-serif",
+    "align": "center",
+    "anchor": "middle"
+  },
 
   "width": 800,
   "height": 400,

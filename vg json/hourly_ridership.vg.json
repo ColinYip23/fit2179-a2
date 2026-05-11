@@ -1,6 +1,22 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Ridership Trend Throughout the Day",
+  "title": {
+    "text": "Ridership Trend Throughout the Day",
+    "subtitle": [
+      "Based on the ridership trend throughout the day,",
+      " ridership peaks around 8 a.m. and 6 p.m.",
+      "These peak periods correspond to typical commuting hours,", 
+      "when people travel to work in the morning",
+      "and return home in the evening."
+    ],
+    "subtitleFontSize": 12,
+    "subtitleColor": "#555",
+    "subtitleLineHeight": 16,
+    "font": "Georgia, Times New Roman, serif",
+    "subtitleFont": "Arial, Helvetica, sans-serif",
+    "align": "center",
+    "anchor": "middle"
+  },
   "width": 700,
   "height": 400,
 

@@ -1,6 +1,22 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "7-Day Ridership Volatility",
+  "title": {
+    "text": "7-Day Ridership Volatility",
+    "subtitle": [
+      "The graph shows fluctuations in 7-day volatility.",
+      "Sharp spikes occur in late February, early March,",
+      "and early April.",
+      "These peaks show greater variation in daily ridership,",
+      "while stable sections suggest consistent commuting."
+    ],
+    "subtitleFontSize": 12,
+    "subtitleColor": "#555",
+    "subtitleLineHeight": 16,
+    "font": "Georgia, Times New Roman, serif",
+    "subtitleFont": "Arial, Helvetica, sans-serif",
+    "align": "center",
+    "anchor": "middle"
+  },
   "width": 800,
   "height": 400,
 

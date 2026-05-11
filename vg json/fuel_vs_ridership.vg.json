@@ -1,6 +1,22 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "RON95 Fuel Price vs Public Transport Ridership (2021–2025)",
+  "title": {
+    "text": "RON95 Fuel Price vs Public Transport Ridership (2021-2025)",
+    "subtitle": [
+      "Ridership rose steadily from 2021 to 2025,",
+      "largely independent of fuel prices.",
+      "Fuel prices stayed relatively stable from",
+      "March 2021 to August 2025.",
+      "A sharp fuel price increase appears only after August 2025."
+    ],
+    "subtitleFontSize": 12,
+    "subtitleColor": "#555",
+    "subtitleLineHeight": 16,
+    "font": "Georgia, Times New Roman, serif",
+    "subtitleFont": "Arial, Helvetica, sans-serif",
+    "align": "center",
+    "anchor": "middle"
+  },
   "width": 800,
   "height": 400,
 

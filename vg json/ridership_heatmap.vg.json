@@ -1,6 +1,22 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Monthly Ridership Heatmap by Ride Type 2025",
+  "title": {
+    "text": "Monthly Ridership Heatmap by Ride Type 2025",
+    "subtitle": [
+      "The heatmap shows peak ridership around July and August.",
+      "Ridership is noticeably higher than the rest of the year,",
+      "indicating increased travel demand during mid-year.",
+      "This may be influenced by school holidays, tourism,",
+      "public events, and more travel during this period."
+    ],
+    "subtitleFontSize": 12,
+    "subtitleColor": "#555",
+    "subtitleLineHeight": 16,
+    "font": "Georgia, Times New Roman, serif",
+    "subtitleFont": "Arial, Helvetica, sans-serif",
+    "align": "center",
+    "anchor": "middle"
+  },
   "width": 700,
   "height": 350,
   "data": {"url": "../data/monthly_ridership_long.csv"},

@@ -36,45 +36,6 @@
 
     {
       "data": {
-        "url": "../geoBoundaries-MYS-ADM2.topojson",
-        "format": {
-          "type": "topojson",
-          "feature": "rapidrail"
-        }
-      },
-
-      "transform": [
-        {
-          "calculate": "datum.properties.shapeName",
-          "as": "district"
-        }
-      ],
-
-      "mark": {
-        "type": "text",
-        "fontSize": 10,
-        "color": "#666"
-      },
-
-      "encoding": {
-        "longitude": {
-          "field": "properties.center_lon",
-          "type": "quantitative"
-        },
-
-        "latitude": {
-          "field": "properties.center_lat",
-          "type": "quantitative"
-        },
-
-        "text": {
-          "field": "district"
-        }
-      }
-    },
-
-    {
-      "data": {
         "url": "../data/cleaned_flow_data.csv"
       },
       "transform": [
