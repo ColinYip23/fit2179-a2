@@ -14,8 +14,9 @@
     "subtitleLineHeight": 16,
     "font": "Georgia, Times New Roman, serif",
     "subtitleFont": "Arial, Helvetica, sans-serif",
-    "align": "center",
-    "anchor": "middle"
+    "align": "left",
+    "anchor": "start",
+    "offset": 20
   },
 
   "width": 800,

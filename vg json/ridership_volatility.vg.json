@@ -4,8 +4,7 @@
     "text": "7-Day Ridership Volatility",
     "subtitle": [
       "The graph shows fluctuations in 7-day volatility.",
-      "Sharp spikes occur in late February, early March,",
-      "and early April.",
+      "Sharp spikes occur in late February, early March, and early April.",
       "These peaks show greater variation in daily ridership,",
       "while stable sections suggest consistent commuting."
     ],
@@ -14,8 +13,9 @@
     "subtitleLineHeight": 16,
     "font": "Georgia, Times New Roman, serif",
     "subtitleFont": "Arial, Helvetica, sans-serif",
-    "align": "center",
-    "anchor": "middle"
+    "align": "left",
+    "anchor": "start",
+    "offset": 20
   },
   "width": 800,
   "height": 400,

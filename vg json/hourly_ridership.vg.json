@@ -4,7 +4,7 @@
     "text": "Ridership Trend Throughout the Day",
     "subtitle": [
       "Based on the ridership trend throughout the day,",
-      " ridership peaks around 8 a.m. and 6 p.m.",
+      "ridership peaks around 8 a.m. and 6 p.m.",
       "These peak periods correspond to typical commuting hours,", 
       "when people travel to work in the morning",
       "and return home in the evening."
@@ -14,8 +14,9 @@
     "subtitleLineHeight": 16,
     "font": "Georgia, Times New Roman, serif",
     "subtitleFont": "Arial, Helvetica, sans-serif",
-    "align": "center",
-    "anchor": "middle"
+    "align": "left",
+    "anchor": "start",
+    "offset": 20
   },
   "width": 700,
   "height": 400,

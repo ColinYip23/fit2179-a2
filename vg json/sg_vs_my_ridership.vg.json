@@ -6,7 +6,8 @@
     "subtitle": [
       "Malaysia has a higher proportion of riders using the LRT,",
       "while Singapore has a larger proportion of riders relying on the MRT.",
-      "Both countries experienced a significant decline in ridership during 2020 and 2021 due to the COVID-19 pandemic,",
+      "Both countries experienced a significant decline in ridership",
+      "during 2020 and 2021 due to the COVID-19 pandemic,",
       "before gradually recovering from 2021 onwards."
     ],
     "subtitleFontSize": 12,
@@ -14,8 +15,9 @@
     "subtitleLineHeight": 16,
     "font": "Georgia, Times New Roman, serif",
     "subtitleFont": "Arial, Helvetica, sans-serif",
-    "align": "center",
-    "anchor": "middle"
+    "align": "left",
+    "anchor": "start",
+    "offset": 20
   },
 
   "data": {
