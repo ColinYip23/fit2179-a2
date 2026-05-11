@@ -21,7 +21,7 @@
   },
 
   "data": {
-    "url": "../data/cleaned_mrt_lrt_2019_2024.csv"
+    "url": "data/cleaned_mrt_lrt_2019_2024.csv"
   },
 
   "facet": {

@@ -11,7 +11,7 @@
   "layer": [
     {
       "data": {
-        "url": "../geoBoundaries-MYS-ADM2.topojson",
+        "url": "geoBoundaries-MYS-ADM2.topojson",
         "format": {
           "type": "topojson",
           "feature": "rapidrail"
@@ -36,7 +36,7 @@
 
     {
       "data": {
-        "url": "../data/cleaned_flow_data.csv",
+        "url": "data/cleaned_flow_data.csv",
         "format": {
           "type": "csv",
           "parse": {
@@ -100,7 +100,7 @@
 
     {
       "data": {
-        "url": "../data/stops.csv",
+        "url": "data/stops.csv",
         "format": {
           "type": "csv",
           "parse": {

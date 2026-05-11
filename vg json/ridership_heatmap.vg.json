@@ -20,7 +20,7 @@
   },
   "width": 700,
   "height": 350,
-  "data": {"url": "../data/monthly_ridership_long.csv"},
+  "data": {"url": "data/monthly_ridership_long.csv"},
   "mark": "rect",
   "encoding": {
     "x": {

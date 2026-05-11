@@ -8,7 +8,7 @@
   "data": [
     {
       "name": "links",
-      "url": "../data/rapidrail_sankey_top30.csv",
+      "url": "data/rapidrail_sankey_top30.csv",
       "format": {"type": "csv", "parse": {"value": "number"}}
     }
   ],

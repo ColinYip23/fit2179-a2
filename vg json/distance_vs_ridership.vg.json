@@ -22,7 +22,7 @@
   "height": 450,
 
   "data": {
-    "url": "../data/distance_decay.csv"
+    "url": "data/distance_decay.csv"
   },
 
   "mark": {

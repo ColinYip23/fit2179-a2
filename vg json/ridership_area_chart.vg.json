@@ -23,7 +23,7 @@
   "height": 400,
 
   "data": {
-    "url": "../data/daily_mode_ridership.csv"
+    "url": "data/daily_mode_ridership.csv"
   },
 
   "layer": [

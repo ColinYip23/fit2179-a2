@@ -5,7 +5,7 @@
   "height": 450,
 
   "data": {
-    "url": "../data/top_stations_ridership.csv"
+    "url": "data/top_stations_ridership.csv"
   },
 
   "mark": {

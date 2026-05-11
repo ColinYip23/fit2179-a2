@@ -21,7 +21,7 @@
   "height": 400,
 
   "data": {
-    "url": "../data/ridership_volatility.csv"
+    "url": "data/ridership_volatility.csv"
   },
 
   "mark": {
