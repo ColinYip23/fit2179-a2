@@ -1,0 +1,107 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+  "title": {
+    "text": "Public Transport Ridership Share",
+    "subtitle": "Percentage distribution of MRT, LRT, and BRT ridership",
+    "anchor": "start"
+  },
+
+  "width": 450,
+  "height": 450,
+
+  "data": {
+    "url": "data/transport_share.csv"
+  },
+
+  "transform": [
+    {
+      "calculate": "datum.transport_type == 'LRT' ? 0 : datum.transport_type == 'MRT' ? 1 : 2",
+      "as": "transport_order"
+    }
+  ],
+
+  "layer": [
+    {
+      "mark": {
+        "type": "arc",
+        "outerRadius": 180,
+        "stroke": "white",
+        "strokeWidth": 2
+      },
+
+      "encoding": {
+        "theta": {
+          "field": "ridership",
+          "type": "quantitative",
+          "stack": true
+        },
+
+        "color": {
+          "field": "transport_type",
+          "type": "nominal",
+          "scale": {
+            "domain": ["LRT", "MRT", "BRT"],
+            "range": ["#1f77b4", "#ff7f0e", "#d62728"]
+          },
+          "legend": {
+            "title": "Transport Type"
+          }
+        },
+
+        "order": {
+          "field": "transport_order",
+          "type": "quantitative"
+        },
+
+        "tooltip": [
+          {
+            "field": "transport_type",
+            "type": "nominal",
+            "title": "Transport"
+          },
+          {
+            "field": "ridership",
+            "type": "quantitative",
+            "title": "Ridership",
+            "format": ","
+          }
+        ]
+      }
+    },
+
+    {
+      "mark": {
+        "type": "text",
+        "radius": 205,
+        "fontSize": 14,
+        "fontWeight": "bold",
+        "fill": "#222"
+      },
+
+      "encoding": {
+        "theta": {
+          "field": "ridership",
+          "type": "quantitative",
+          "stack": true
+        },
+        "detail": {
+          "field": "transport_type",
+          "type": "nominal"
+        },
+        "text": {
+          "field": "transport_type",
+          "type": "nominal"
+        },
+        "order": {
+          "field": "transport_order",
+          "type": "quantitative"
+        }
+      }
+    }
+  ],
+
+  "view": {
+    "stroke": null
+  }
+}

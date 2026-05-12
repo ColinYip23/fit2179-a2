@@ -1,0 +1,148 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Incoming Ridership by Station",
+    "subtitle": "Larger circles indicate stations with higher incoming ridership",
+    "anchor": "start"
+  },
+  "width": 600,
+  "height": 600,
+
+  "projection": {
+    "type": "mercator"
+  },
+
+  "layer": [
+    {
+      "data": {
+        "url": "geoBoundaries-MYS-ADM2.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "rapidrail"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#fafafa",
+        "stroke": "#555",
+        "strokeWidth": 1
+      }
+    },
+
+    {
+      "data": {
+        "url": "data/station_inflow.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "incoming_ridership": "number",
+            "lon": "number",
+            "lat": "number"
+          }
+        }
+      },
+      "mark": {
+        "type": "circle",
+        "opacity": 0.75,
+        "stroke": "white",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "incoming_ridership",
+          "type": "quantitative",
+          "title": "Incoming Ridership",
+          "scale": {
+            "range": [40, 3500]
+          }
+        },
+        "color": {
+          "field": "incoming_ridership",
+          "type": "quantitative",
+          "scale": {
+            "scheme": "blues"
+          },
+          "legend": {
+            "title": "Incoming Ridership"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "station",
+            "type": "nominal",
+            "title": "Station"
+          },
+          {
+            "field": "incoming_ridership",
+            "type": "quantitative",
+            "title": "Incoming Ridership",
+            "format": ","
+          }
+        ]
+      }
+    },
+
+    {
+      "data": {
+        "url": "data/station_inflow.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "lon": "number",
+            "lat": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "window": [
+            {
+              "op": "rank",
+              "as": "rank"
+            }
+          ],
+          "sort": [
+            {
+              "field": "incoming_ridership",
+              "order": "descending"
+            }
+          ]
+        },
+        {
+          "filter": "datum.rank <= 10"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 5,
+        "dy": -5,
+        "fontSize": 6,
+        "color": "#222"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "station",
+          "type": "nominal"
+        }
+      }
+    }
+  ]
+}

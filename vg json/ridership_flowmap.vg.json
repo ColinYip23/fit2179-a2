@@ -138,6 +138,50 @@
           }
         ]
       }
+    },
+
+    {
+      "data": {
+        "values": [
+          {"station": "KL Sentral", "lat": 3.13442, "lon": 101.68625},
+          {"station": "Pasar Seni", "lat": 3.142439, "lon": 101.69531},
+          {"station": "KLCC", "lat": 3.158935, "lon": 101.713287},
+          {"station": "Bank Rakyat Bangsar", "lat": 3.127588, "lon": 101.679062},
+          {"station": "Abdullah Hukum", "lat": 3.118735, "lon": 101.672897},
+          {"station": "Universiti", "lat": 3.114616, "lon": 101.661639},
+          {"station": "Tun Razak Exchange", "lat": 3.142403, "lon": 101.720156},
+          {"station": "Cochrane", "lat": 3.132829, "lon": 101.722962},
+          {"station": "Maluri", "lat": 3.123623, "lon": 101.727809},
+          {"station": "Bukit Bintang", "lat": 3.146503, "lon": 101.710947},
+          {"station": "Kota Damansara", "lat": 3.150134, "lon": 101.57869},
+          {"station": "Subang Jaya", "lat": 3.08466, "lon": 101.588127}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 3,
+        "dy": -3,
+        "fontSize": 5,
+        "color": "#222",
+        "stroke": "black",
+        "strokeWidth": 0.3
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "station",
+          "type": "nominal"
+        }
+      }
     }
   ]
 }

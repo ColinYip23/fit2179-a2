@@ -33,7 +33,7 @@
 
       "mark": {
         "type": "area",
-        "opacity": 0.55
+        "opacity": 1
       },
 
       "encoding": {
@@ -49,7 +49,11 @@
         },
 
         "color": {
-          "datum": "LRT"
+          "datum": "LRT",
+          "scale": {
+            "domain": ["LRT", "MRT", "BRT"],
+            "range": ["#1f77b4", "#ff7f0e", "#d62728"]
+          }
         },
 
         "tooltip": [
@@ -70,7 +74,7 @@
 
       "mark": {
         "type": "area",
-        "opacity": 0.55
+        "opacity": 1
       },
 
       "encoding": {
@@ -86,7 +90,11 @@
         },
 
         "color": {
-          "datum": "MRT"
+          "datum": "MRT",
+          "scale": {
+            "domain": ["LRT", "MRT", "BRT"],
+            "range": ["#1f77b4", "#ff7f0e", "#d62728"]
+          }
         },
 
         "tooltip": [
@@ -107,7 +115,7 @@
 
       "mark": {
         "type": "area",
-        "opacity": 0.55
+        "opacity": 1
       },
 
       "encoding": {
@@ -128,7 +136,11 @@
         },
 
         "color": {
-          "datum": "BRT"
+          "datum": "BRT",
+          "scale": {
+            "domain": ["LRT", "MRT", "BRT"],
+            "range": ["#1f77b4", "#ff7f0e", "#d62728"]
+          }
         },
 
         "tooltip": [

@@ -23,7 +23,7 @@
           "x2": {"value": 900},
           "y": {"field": "source", "scale": "sourceScale"},
           "y2": {"field": "target", "scale": "targetScale"},
-          "stroke": {"value": "black"},
+          "stroke": {"value": "blue"},
           "strokeOpacity": {"value": 0.35},
           "strokeWidth": {"scale": "widthScale", "field": "value"}
         },
