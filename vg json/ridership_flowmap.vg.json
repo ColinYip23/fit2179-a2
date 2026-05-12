@@ -50,7 +50,7 @@
       },
       "mark": {
         "type": "rule",
-        "opacity": 0.28,
+        "opacity": 0.4,
         "strokeCap": "round"
       },
       "encoding": {
@@ -75,7 +75,7 @@
           "type": "quantitative",
           "scale": {
             "domain": [250, 1700],
-            "range": [0.5, 5]
+            "range": [0.5, 8]
           }
         },
         "tooltip": [
