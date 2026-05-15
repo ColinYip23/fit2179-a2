@@ -8,6 +8,28 @@
     "type": "mercator"
   },
 
+  "params": [
+    {
+      "name": "flow_count",
+      "value": 40,
+      "bind": {
+        "input": "range",
+        "min": 5,
+        "max": 182,
+        "step": 5,
+        "name": "Number of flows shown: "
+      }
+    },
+    {
+      "name": "show_station_names",
+      "value": true,
+      "bind": {
+        "input": "checkbox",
+        "name": "Show station names"
+      }
+    }
+  ],
+
   "layer": [
     {
       "data": {
@@ -48,6 +70,25 @@
           }
         }
       },
+      "transform": [
+        {
+          "window": [
+            {
+              "op": "rank",
+              "as": "flow_rank"
+            }
+          ],
+          "sort": [
+            {
+              "field": "ridership",
+              "order": "descending"
+            }
+          ]
+        },
+        {
+          "filter": "datum.flow_rank <= flow_count"
+        }
+      ],
       "mark": {
         "type": "rule",
         "opacity": 0.4,
@@ -157,6 +198,11 @@
           {"station": "Subang Jaya", "lat": 3.08466, "lon": 101.588127}
         ]
       },
+      "transform": [
+        {
+          "filter": "show_station_names"
+        }
+      ],
       "mark": {
         "type": "text",
         "align": "left",

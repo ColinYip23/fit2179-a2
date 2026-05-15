@@ -12,6 +12,17 @@
     "type": "mercator"
   },
 
+  "params": [
+    {
+      "name": "show_station_names",
+      "value": true,
+      "bind": {
+        "input": "checkbox",
+        "name": "Show station names"
+      }
+    }
+  ],
+
   "layer": [
     {
       "data": {
@@ -118,6 +129,9 @@
         },
         {
           "filter": "datum.rank <= 10"
+        },
+        {
+          "filter": "show_station_names"
         }
       ],
       "mark": {
